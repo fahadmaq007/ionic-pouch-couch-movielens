@@ -1,0 +1,28 @@
+<ion-view ng-init="init({'indexes': ['title']})">
+<ion-nav-bar class='bar bar-assertive'>
+  <ion-nav-title><h1 class="title">Movies</h1></ion-nav-title>  
+  <ion-nav-buttons side='secondary'>  
+    <span ng-show="totalCount" class="right badge badge-assertive">Total movies: {{totalCount}}</span>
+  	 
+  </ion-nav-buttons> 
+</ion-nav-bar>
+
+  <ion-content>
+	<div class="bar bar-light item-input-inset">
+	    <label class="item-input-wrapper textbox-search">
+	        <i class="icon ion-search placeholder-icon"></i>
+	        <input type="text" placeholder="Search" ng-model="searchText" ng-enter="search('title', searchText)" 
+	  style="width:100%; padding-left: 10px;">
+	    </label>
+
+	</div>
+  	<ion-list on-swipe-up="nextPage()">
+    	<div collection-repeat="movie in movies" class="list card">
+		  <a href="#/tab/ratings/movie/{{movie.id}}" class="item">
+		    <h2>{{movie.title}}</h2>
+		    <p>{{movie.releaseDate}}</p>
+		  </a>
+		</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

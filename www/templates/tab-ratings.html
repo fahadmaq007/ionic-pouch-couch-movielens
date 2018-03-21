@@ -1,0 +1,18 @@
+<ion-view ng-init="init({'indexes': ['movieId', 'userId']})">
+<ion-nav-bar class='bar bar-assertive'>
+  <ion-nav-title><h1 class="title">Ratings</h1></ion-nav-title>  
+  <ion-nav-buttons side='secondary'>  
+    <span ng-show="totalCount" class="right badge badge-assertive">Total ratings: {{totalCount}}</span>
+  </ion-nav-buttons> 
+</ion-nav-bar>
+  <ion-content>
+    <ion-list on-swipe-up="nextPage()">
+      <div collection-repeat="rating in ratings" class="list card">
+      <div class="item">
+        <i class="icon" ng-class="i < rating.rating ? 'ion-android-star' : 'ion-star-outline'" style="margin-right: 3px" ng-repeat="i in [0, 1, 2, 3, 4]"></i>
+        <p>Movie#<a href="#/tab/movies/{{rating.movieId}}">{{rating.movieId}}</a> rated by User#<a href="#/tab/users/{{rating.userId}}">{{rating.userId}}</a></p>
+      </a>
+    </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

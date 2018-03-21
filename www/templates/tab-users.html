@@ -1,0 +1,26 @@
+<ion-view ng-init="init({'indexes': ['id']})">
+
+<!-- <ion-nav-buttons side='left'> 
+		<button class='left button button-icon icon ion-ios-arrow-left' ng-click='back()'></button> 
+	</ion-nav-buttons> -->
+<ion-nav-bar class='bar bar-assertive'>
+	<ion-nav-title><h1 class="title">Users</h1></ion-nav-title>  
+	<ion-nav-buttons side='secondary'>  
+		<span ng-show="totalCount" class="right badge badge-assertive">Total users: {{totalCount}}</span>
+	</ion-nav-buttons> 
+</ion-nav-bar>
+
+<ion-content class="has-header">
+	<ion-list on-swipe-up="nextPage()">
+		<div collection-repeat="user in users" class="list card">
+		  <a href="#/tab/ratings/user/{{user.id}}" class="item">
+		    <h2>
+		    	<i ng-class="user.gender == 'M' ? 'ion-man' : 'ion-woman'"></i> 
+		    	{{user.occupation}}
+		    </h2>
+		    <p>Age: {{user.age}}</p>
+		  </a>
+		</div>
+	</ion-list>
+</ion-content>
+</ion-view>
